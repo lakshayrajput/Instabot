@@ -19,4 +19,5 @@ def self_info():
   else:
     print 'Status code other than 200 received!'
 
-self_info()
+  print("----------------------------------------------------------------------------------------------")
+  print("\n")
