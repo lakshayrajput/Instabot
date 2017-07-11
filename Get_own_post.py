@@ -11,7 +11,8 @@ def get_own_post() :
     if own_media ['meta']['code'] == 200 :
         if len(own_media['data']) :
             print ("comments: %s"%(own_media['data'][0]['comments']['count']))
-            print ("Pic id: %s" % (own_media['data'][0]['caption']['id']))
+            print("Pic id: %s"%(own_media['data'][0]['id']))
+            print ("Caption id: %s" % (own_media['data'][0]['caption']['id']))
 
             time = int(own_media['data'][0]['caption']['created_time'])
             date = datetime.fromtimestamp(time / 1000.0)
@@ -21,6 +22,7 @@ def get_own_post() :
             print("Your image has been successfully saved..")
             print ("Created Time: %s" % (date))
             print ("Total likes: %s" % (own_media['data'][0]['likes']['count']))
+            return (own_media['data'][0]['id'])
         else:
             print("Post does not exist")
     else :

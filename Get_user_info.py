@@ -1,12 +1,13 @@
 from constants import Base_url,App_Access_Token
-from Get_user_id import get_user_id
+from Get_user_id import get_user_id,user_name
+
 import requests
 
 
 
 
 def get_user_info() :
-    own_id = get_user_id()
+    own_id = get_user_id(user_name)
     request_url = (Base_url+"users/%s/?access_token=%s")%(own_id,App_Access_Token)
     print("Get request: "+request_url)
     own_info = requests.get(request_url).json()
