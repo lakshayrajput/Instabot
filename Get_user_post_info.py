@@ -1,4 +1,4 @@
-from Get_user_id import get_user_id,user_name
+from Get_user_id import get_user_id
 from constants import Base_url,App_Access_Token
 import requests
 import urllib
@@ -6,8 +6,9 @@ import urllib
 
 cap = None
 #-----get user latest post-----#
-def get_user_post_info() :
-    user_id = get_user_id(user_name)
+def get_user_post_info(username) :
+
+    user_id = get_user_id(username)
     request_url = (Base_url + "users/%s/media/recent/?access_token=%s"%(user_id,App_Access_Token))
     print("Get request url: "+request_url)
     user_info = requests.get(request_url).json()
@@ -25,7 +26,7 @@ def get_user_post_info() :
 
              print("Pic id : %s" % (user_info['data'][0]['id']))
              print("Pic likes : %s" % (user_info['data'][0]['likes']['count']))
-             image_name = user_name+'.jpg'
+             image_name = username+'.jpg'
              image_url = user_info['data'][0]['images']['standard_resolution']['url']
              urllib.urlretrieve(image_url, image_name)       #-----saving the user's latest post-----#
              print("Your image has been successfully saved..")
@@ -36,5 +37,3 @@ def get_user_post_info() :
             print("No info exist")
     else:
         print("Incorrect code..")
-
-get_user_post_info()

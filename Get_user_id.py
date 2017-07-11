@@ -1,7 +1,7 @@
 from constants import Base_url,App_Access_Token
 import requests
 
-user_name = raw_input("Please enter your friend name: ")
+
 def get_user_id(user_name) :
 
     request_url = ((Base_url + "users/search?q=%s&access_token=%s") % (user_name,App_Access_Token))
