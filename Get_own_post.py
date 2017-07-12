@@ -5,7 +5,7 @@ import urllib
 
 def get_own_post() :
     request_url = (Base_url + "users/self/media/recent/?access_token=%s") % (App_Access_Token)
-    print("Get request url: %s"%(request_url))
+    #print("Get request url: %s"%(request_url))
     own_media = requests.get(request_url).json()
     #print(own_media)
     if own_media ['meta']['code'] == 200 :
@@ -27,5 +27,3 @@ def get_own_post() :
             print("Post does not exist")
     else :
         print("Status code is wrong")
-    print("----------------------------------------------------------------------------------------------")
-    print("\n")

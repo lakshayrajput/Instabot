@@ -6,6 +6,9 @@ from Get_user_post_info import get_user_post_info
 from Like_a_post import like_a_post
 from Post_a_comment import post_a_comment
 from Recent_liked_pic import user_post_like_by_me
+from Get_all_posts_of_user import get_all_posts
+from Most_commented_own_post import most_commented_post
+from Most_liked_own_post import most_liked_post
 
 
 
@@ -14,7 +17,7 @@ def main():
     var = True
     while var :
         print("--------------------------------------------------------------------------------------------------------------")
-        print(" What do you want to do ?.\n 1.Self-information...\n 2.Get own-post...\n 3.Get user-id...\n 4.Get user-info...\n 5.Get user post-info...\n 6.Like a user-post...\n 7.Post a comment on user-id...\n 8.Get the recent post liked by you of the other user...\n 9.Exit... "
+        print(" What do you want to do ?.\n 1.Self-information...\n 2.Get own-post...\n 3.Get user-id...\n 4.Get user-info...\n 5.Get user post-info...\n 6.Like a user-post...\n 7.Post a comment on user-id...\n 8.Get the recent post liked by you of the other user...\n 9.Download all posts of other user...\n 10.Download the most commented own post...\n 11.Download most liked own post...\n 12.Exit "
               "")
         get = int(raw_input("Please enter your choice : "))
         if get == 1 :
@@ -52,6 +55,15 @@ def main():
                 #--------Get to know which recent pic is liked by me of the user & download it-------#
             user_post_like_by_me()
         elif get == 9 :
+            #--------- Download the all posts of user--------#
+            get_all_posts()
+        elif get == 10 :
+            #-------Download most commented own post-------#
+            most_commented_post()
+        elif get == 11 :
+            #------- download most liked own post-------#
+            most_liked_post()
+        elif get == 12 :
                 #--------Press 9 if u wanna terminate the program------#
             var = False
             print("-----------------------------------------------------------------------------------------------------")

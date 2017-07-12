@@ -9,7 +9,7 @@ import requests
 def get_user_info(username) :
     own_id = get_user_id(username)
     request_url = (Base_url+"users/%s/?access_token=%s")%(own_id,App_Access_Token)
-    print("Get request: "+request_url)
+    #print("Get request: "+request_url)
     own_info = requests.get(request_url).json()
     if own_info ['meta']['code'] == 200 :
         if len(own_info['data']) :
