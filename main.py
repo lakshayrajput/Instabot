@@ -5,6 +5,7 @@ from Get_user_info import get_user_info
 from Get_user_post_info import get_user_post_info
 from Like_a_post import like_a_post
 from Post_a_comment import post_a_comment
+from Recent_liked_pic import user_post_like_by_me
 
 
 
@@ -13,7 +14,8 @@ def main():
     var = True
     while var :
         print("--------------------------------------------------------------------------------------------------------------")
-        print(" What do you want to do ?.\n 1.Self-information...\n 2.Get own-post...\n 3.Get user-id...\n 4.Get user-info...\n 5.Get user post-info...\n 6.Like a user-post...\n 7.Post a comment on user-id...\n 8.Exit")
+        print(" What do you want to do ?.\n 1.Self-information...\n 2.Get own-post...\n 3.Get user-id...\n 4.Get user-info...\n 5.Get user post-info...\n 6.Like a user-post...\n 7.Post a comment on user-id...\n 8.Get the recent post liked by you of the other user...\n 9.Exit... "
+              "")
         get = int(raw_input("Please enter your choice : "))
         if get == 1 :
                 # ----getting my own info----#
@@ -43,9 +45,14 @@ def main():
 
             like_a_post()
             print("-----------------------------------------------------------------------------------------------------")
-        elif get ==7 :
+        elif get == 7 :
+                #------Hit a comment on user post----------#
             post_a_comment()
         elif get == 8 :
+                #--------Get to know which recent pic is liked by me of the user & download it-------#
+            user_post_like_by_me()
+        elif get == 9 :
+                #--------Press 9 if u wanna terminate the program------#
             var = False
             print("-----------------------------------------------------------------------------------------------------")
 
