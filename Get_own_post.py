@@ -20,7 +20,7 @@ def get_own_post() :
             image_url = own_media['data'][0]['images']['standard_resolution']['url']
             urllib.urlretrieve(image_url, image_name)
             print("Your image has been successfully saved..")
-            print ("Created Time: %s" % (date))
+            #print ("Created Time: %s" % (date))
             print ("Total likes: %s" % (own_media['data'][0]['likes']['count']))
             return (own_media['data'][0]['id'])
         else:

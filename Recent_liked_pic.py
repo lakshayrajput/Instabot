@@ -19,4 +19,3 @@ def user_post_like_by_me() :
             print("Post does not exist...")
     else:
         print("Http code other than 200....")
-#\n 12.Download the most commented user's post...\n 13.Download the most liked user's post...\n 14.Get a pie-chat of all -ve and +ve comments of own post...\n 15.Targeted comments based on user's post caption...
