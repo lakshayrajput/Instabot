@@ -2,6 +2,7 @@ from Get_user_id import get_user_id
 from constants import Base_url,App_Access_Token
 import requests
 import urllib
+from PIL import Image
 
 
 cap = None
@@ -28,6 +29,8 @@ def get_user_post_info(username) :
              image_name = username+'.jpg'
              image_url = user_info['data'][0]['images']['standard_resolution']['url']
              urllib.urlretrieve(image_url, image_name)       #-----saving the user's latest post-----#
+             original = Image.open(image_name)
+             original.show()
              print("Your image has been successfully saved..")
              #return (user_info['data'][0]['id'])
 

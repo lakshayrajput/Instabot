@@ -2,6 +2,7 @@ from constants import Base_url,App_Access_Token
 import requests
 from datetime import datetime, timedelta
 import urllib
+from PIL import Image
 
 def get_own_post() :
     request_url = (Base_url + "users/self/media/recent/?access_token=%s") % (App_Access_Token)
@@ -19,6 +20,8 @@ def get_own_post() :
             image_name = 'lakshay.jpg'
             image_url = own_media['data'][0]['images']['standard_resolution']['url']
             urllib.urlretrieve(image_url, image_name)
+            original = Image.open(image_name)
+            original.show()
             print("Your image has been successfully saved..")
             #print ("Created Time: %s" % (date))
             print ("Total likes: %s" % (own_media['data'][0]['likes']['count']))

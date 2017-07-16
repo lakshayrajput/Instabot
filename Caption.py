@@ -15,20 +15,28 @@ def caption_comment() :
     if user_info['meta']['code'] == 200:
 
         if len(user_info['data']):
-
+            count = 0
+            no_caption = set()
+            no_matched_caption = set()
             for post in range(0, len(user_info['data'])):
                 pic_no = post + 1
+                if user_info['data'][post]['caption'] == None:
+                    no_caption.add(pic_no)
                 for temp in service:
+
+
                     if user_info['data'][post]['caption'] == None:
-                        print("Sorry there is no hashtag inside the image...")
+                        var = 0
 
                     elif temp in user_info['data'][post]['caption']['text']:
-                        print(user_info['data'][post]['caption']['text'])
+                        #print(user_info['data'][post]['caption']['text'])
                         pic_id = user_info['data'][post]['id']
-                        comment_text = raw_input("Your comment: ")
+
+                        print("Caption matched in pic no: "+str(pic_no))
+                        comment_text = raw_input("Write your comment here: ")
                         payload = {"access_token": App_Access_Token, "text": comment_text}
                         request_url = (Base_url + 'media/%s/comments') % (pic_id)
-                        print 'POST request url : %s' % (request_url)
+                        #print 'POST request url : %s' % (request_url)
 
                         make_comment = requests.post(request_url, payload).json()
 
@@ -37,7 +45,12 @@ def caption_comment() :
                         else:
                             print "Unable to add comment. Try again!"
                     else :
-                        print("Sorry hashtag didn't match.Go further...")
+
+                        no_matched_caption.add(pic_no)
+                        count = pic_no
+            print("No caption in pics: "+str(no_caption))
+            print("No caption matched in pics: "+str(no_matched_caption))
+            print("Total no of pics: "+str(count))
             print("End of images...")
         else:
             print("No info exist")
