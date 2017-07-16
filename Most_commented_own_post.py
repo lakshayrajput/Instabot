@@ -2,6 +2,7 @@
 from constants import Base_url,App_Access_Token
 import requests
 import urllib
+from PIL import Image
 
 
 user_name = 'shawn pic-'
@@ -27,6 +28,8 @@ def most_commented_post() :
             image_name = user_name+str(post_index)+'.jpg'
             image_url = user_info['data'][index]['images']['standard_resolution']['url']
             urllib.urlretrieve(image_url, image_name)       #-----saving the user's latest post-----#
+            original = Image.open(image_name)
+            original.show()
             print("Your image has been successfully saved..")
 
         else:

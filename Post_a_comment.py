@@ -6,6 +6,8 @@ import requests
 
 def post_a_comment():
     username = raw_input("Enter your friend name: ")
+    while username.isalpha() is not True:
+        username = raw_input("Pleaze enter valid name: ")
     media_id = get_user_recent_post_id(username)
     comment_text = raw_input("Your comment: ")
     payload = {"access_token": App_Access_Token, "text" : comment_text}

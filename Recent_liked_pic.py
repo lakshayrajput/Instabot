@@ -1,13 +1,14 @@
 from constants import Base_url,App_Access_Token
 import requests
 import urllib
+from PIL import Image
 
 
 
 user_name = 'dude pic'
 def user_post_like_by_me() :
     request_url = (Base_url + "users/self/media/liked?access_token=%s")%(App_Access_Token)
-    print("Get request url: "+request_url)
+    #print("Get request url: "+request_url)
     result = requests.get(request_url).json()
     if result ['meta']['code'] == 200 :
         if len(result['data']) :
@@ -15,6 +16,9 @@ def user_post_like_by_me() :
             image_url = result['data'][0]['images']['standard_resolution']['url']
             urllib.urlretrieve(image_url, image_name)
             print("Your image has been downloaded as : "+image_name)
+
+            original = Image.open(image_name)
+            original.show()
         else:
             print("Post does not exist...")
     else:
