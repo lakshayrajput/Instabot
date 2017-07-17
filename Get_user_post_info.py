@@ -19,7 +19,7 @@ def get_user_post_info(username) :
              print("Comments : %s"%(user_info['data'][0]['comments']['count']))
 
              if (user_info ['data'][0]['caption']) is not None:
-                    print (user_info['data'][0]['caption'])
+                    var = 0
              else :
                  print("Caption: "+str(user_info['data'][0]['caption']))
 

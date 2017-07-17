@@ -1,13 +1,13 @@
 from Get_user_id import get_user_id
 from constants import Base_url,App_Access_Token
 import requests
-
+from Friend_list import userName,friend_list
 service = ['#food' ,'#shop' ,'#bike' ,'#weather' ,'#iphoneonly' ,'#cool' ,'#life' ,'#lol' ,'#instamood' ,'#life' ,'#style'
-           ,'#amazing' ,'#summer' ,'#fashion' ,'#friends' ,'#cute' ,'#happy' ,'#feeling','#monogram','#thanks_everyone']
+           ,'#amazing' ,'#summer' ,'#fashion' ,'#friends' ,'#cute' ,'#happy' ,'#feeling','#monogram','#thanks_everyone','#Yooo','#gangbang','#Churdhar']
 
 
 def caption_comment() :
-    user_name = raw_input("Enter user name: ")
+    user_name = userName()
     user_id = get_user_id(user_name)
     request_url = (Base_url + "users/%s/media/recent/?access_token=%s" % (user_id, App_Access_Token))
     #print("Get request url: " + request_url)

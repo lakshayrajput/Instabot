@@ -1,5 +1,5 @@
 from Get_user_id import get_user_id
-
+from Friend_list import userName,friend_list
 from constants import Base_url,App_Access_Token
 import requests
 import urllib
@@ -7,9 +7,8 @@ from PIL import Image
 
 
 def get_all_posts() :
-    username=raw_input("Enter the useranme: ")
-    while username.isalpha() is not True:
-        username = raw_input("Pleaze enter valid name: ")
+    username = userName()
+
     user_id = get_user_id(username)
     request_url = (Base_url + "users/%s/media/recent/?access_token=%s" % (user_id, App_Access_Token))
     #print("Get request url: " + request_url)

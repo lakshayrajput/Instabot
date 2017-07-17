@@ -1,14 +1,14 @@
 from Get_user_post_info import get_user_post_info
 from constants import Base_url,App_Access_Token
+from Friend_list import userName,friend_list
 import requests
 
 
 
 
+
 def like_a_post() :
-    user_name = raw_input("Please enter your friend name: ")
-    while user_name.isalpha() is not True:
-        user_name = raw_input("Pleaze enter valid name: ")
+    user_name = userName()
     post_id = get_user_post_info(user_name)
     request_url = (Base_url + "media/%s/likes") % (post_id)
     payload = {"access_token": App_Access_Token}
@@ -18,3 +18,4 @@ def like_a_post() :
         print("Like was successful...")
     else :
         print("Your like was unsuccessful.Please try again...")
+
