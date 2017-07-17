@@ -1,13 +1,12 @@
 from Get_user_recent_post_id import get_user_recent_post_id
 from constants import Base_url,App_Access_Token
 import requests
-
+from Friend_list import userName,friend_list
 
 
 def post_a_comment():
-    username = raw_input("Enter your friend name: ")
-    while username.isalpha() is not True:
-        username = raw_input("Pleaze enter valid name: ")
+    username = userName()
+
     media_id = get_user_recent_post_id(username)
     comment_text = raw_input("Your comment: ")
     payload = {"access_token": App_Access_Token, "text" : comment_text}

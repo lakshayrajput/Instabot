@@ -3,7 +3,7 @@ from constants import Base_url,App_Access_Token
 import requests
 import urllib
 from PIL import Image
-
+from Friend_list import userName,friend_list
 
 
 
@@ -13,9 +13,7 @@ comment_list = []
 post_id_list = []
 
 def most_liked_user_post() :
-    user_name = raw_input("Enter your friend name: ")
-    while user_name.isalpha() is not True:
-        user_name = raw_input("Pleaze enter valid name: ")
+    user_name = userName()
     user_id = get_user_id(user_name)
     request_url = (Base_url + "users/%s/media/recent/?access_token=%s" % (user_id, App_Access_Token))
     #print("Get request url: " + request_url)

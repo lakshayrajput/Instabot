@@ -13,13 +13,16 @@ from Most_commented_user_post import most_commented_user_post
 from Most_liked_user_post import most_liked_user_post
 from Pie_chart import pie_chart
 from Caption import caption_comment
+from Friend_list import userName,friend_list
 
-friend_list = ['danish','yogesh','nitish']
+
+
+
 
 #--------------------------------------------------MAIN FUNCTION---------------------------------------#
 def main():
     var = True
-    var1 = True
+
     while var :
         print("---------------------------------------------------------------------------------------------------------")
         print(" What do you want to do ?.\n 1.Self-information...\n 2.Get own-post...\n 3.Get user-id...\n 4.Get user-info...\n 5.Get user recent post-info...\n 6.Like a user-post...\n 7.Post a comment on user-id...\n 8.Get the recent post liked by you of the other user...\n 9.Download all posts of other user...\n 10.Download the most commented own post...\n 11.Download most liked own post...\n 12.Download the most commented user's post...\n 13.Download the most liked user's post...\n 14.Draw a pie-chat of all -ve and +ve comments of own post...\n 15.Targeted comments based on user's post caption...\n 16.Exit..."
@@ -46,31 +49,21 @@ def main():
             get_own_post()
             print("-----------------------------------------------------------------------------------------------------")
         elif get == 3 :
-            count = 1
-            #print("Your Friend-List: ")
-            #for name in friend_list:
-                    #print("                 " +str(count) + "."+name)
-                    #count = count + 1
-                # -----getting user-ID-----#
-            username=raw_input("Enter the username: ")
-            while username.isalpha() is not True:
-                username = raw_input("Pleaze enter valid name: ")
+
+            username = userName()        #---------CALLING AND GETTING USERNAME FROM USERNAME() FUNCTION-------#
             get_user_id(username)
             print("-----------------------------------------------------------------------------------------------------")
         elif get == 4 :
 
                 # -----getting user-INFO----#
-            username = raw_input("Enter the username: ")
-            while username.isalpha() is not True:
-                username = raw_input("Pleaze enter valid name: ")
+            username = userName()
+
             get_user_info(username)
             print("-----------------------------------------------------------------------------------------------------")
         elif get == 5 :
 
                 # -----getting user recent-POST & saving it as (danish.jpg)------#
-            username = raw_input('enter the username: ')
-            while username.isalpha() is not True:
-                username = raw_input("Pleaze enter valid name: ")
+            username = userName()
             get_user_post_info(username)
             print("-----------------------------------------------------------------------------------------------------")
         elif get == 6 :
