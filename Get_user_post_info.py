@@ -5,7 +5,6 @@ import urllib
 from PIL import Image
 
 
-cap = None
 #-----get user latest post-----#
 def get_user_post_info(username) :
 
@@ -32,11 +31,11 @@ def get_user_post_info(username) :
              original = Image.open(image_name)
              original.show()
              print("Your image has been successfully saved..")
-             #return (user_info['data'][0]['id'])
+             return (user_info['data'][0]['id'])
 
 
         else:
             print("No info exist")
     else:
-        print("Incorrect code..")
+        print("HTTP code other than 200..")
 

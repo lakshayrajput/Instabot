@@ -1,4 +1,5 @@
 from Get_user_post_info import get_user_post_info
+from Get_user_recent_post_id import get_user_recent_post_id
 from constants import Base_url,App_Access_Token
 from Friend_list import userName,friend_list
 import requests
@@ -9,7 +10,7 @@ import requests
 
 def like_a_post() :
     user_name = userName()
-    post_id = get_user_post_info(user_name)
+    post_id = get_user_recent_post_id(user_name)
     request_url = (Base_url + "media/%s/likes") % (post_id)
     payload = {"access_token": App_Access_Token}
     #print("Post request-url: "+request_url)

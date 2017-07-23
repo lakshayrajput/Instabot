@@ -14,6 +14,7 @@ def post_a_comment():
     #print 'POST request url : %s' % (request_url)
 
     make_comment = requests.post(request_url, payload).json()
+    print(make_comment)
 
     if make_comment['meta']['code'] == 200:
         print "Successfully added a new comment!"
